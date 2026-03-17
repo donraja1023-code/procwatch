@@ -1,0 +1,7 @@
+{
+    "python.defaultInterpreterPath": "../venv/bin/python",
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.files.associations": {
+        "VERSION": "file"
+    }
+}

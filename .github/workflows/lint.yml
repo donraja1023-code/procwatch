@@ -1,0 +1,56 @@
+name: Lint & Type Check
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - python-version: "3.10"
+            python-target-version: "py310"
+          - python-version: "3.11"
+            python-target-version: "py311"
+
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      # 2️⃣ Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # 3️⃣ Install dev dependencies
+      - name: Install linting tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      # 4️⃣ Run black (code formatting check)
+      - name: Black
+        run: |
+          black --check src tests --target-version ${{ matrix.python-target-version }}
+
+      # 5️⃣ Run isort (import order)
+      - name: isort
+        run: |
+          isort --check-only src tests
+
+      # 6️⃣ Run flake8 (style, complexity, errors) {ignore - E501 line too long, W503 - line break occurred before a binary operator}
+      - name: Flake8
+        run: |
+          flake8 src tests --ignore=E501,W503
+
+      # 7️⃣ Run mypy (optional type checks)
+      - name: Mypy
+        run: |
+          mypy --install-types --non-interactive src
+          mypy src

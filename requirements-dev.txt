@@ -1,0 +1,14 @@
+# Testing
+pytest>=7.0
+pytest-cov>=4.0
+
+# Linting / code formatting
+black>=23.0
+isort>=5.0
+flake8>=6.0
+
+# Optional type checking
+mypy>=1.0
+
+# Optional: coverage reporting tools
+coverage>=7.0

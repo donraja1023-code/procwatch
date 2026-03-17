@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/procwatch/__init__.py
+src/procwatch/cli.py
+src/procwatch.egg-info/PKG-INFO
+src/procwatch.egg-info/SOURCES.txt
+src/procwatch.egg-info/dependency_links.txt
+src/procwatch.egg-info/entry_points.txt
+src/procwatch.egg-info/requires.txt
+src/procwatch.egg-info/top_level.txt
+tests/test_cli.py
