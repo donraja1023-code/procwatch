@@ -1,3 +1,3 @@
+from procwatch import cli
 import psutil
 import pytest
-from procwatch import cli

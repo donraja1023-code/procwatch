@@ -81,6 +81,7 @@ out/                   # PyCharm output folders
 # Temporary files
 # ----------------------------
 *.tmp
+tmp
 *.bak
 # Reason: temporary files created by editors or tools
 
