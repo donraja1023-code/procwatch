@@ -4,9 +4,9 @@
 Monitor if a process is running. If not, restart it.
 
 ## Example:
-`procwatch --pid 34349`
+`procwatch --pid 34349`  
 <!-- `procwatch --pidfile app.pid`  -->
-`procwatch --match "python server.py"`
+`procwatch --match "python server.py"`  
 `procwatch --port 8000`
 
 ## Requirements:
@@ -16,7 +16,7 @@ Monitor if a process is running. If not, restart it.
 - Timeout protection
 
 ## Multiple cli
-`procwatch --match "python -m http.server 8000" --restart "python -m http.server 8000"`
+`procwatch --match "python -m http.server 8000" --restart "python -m http.server 8000"`  
 `procwatch --port 8000 --restart "/usr/bin/startmyapp" --interval 4`
 
 ## Skills Learned:
