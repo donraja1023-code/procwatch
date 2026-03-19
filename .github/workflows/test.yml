@@ -35,3 +35,13 @@ jobs:
       - name: Run pytest
         run: |
           pytest --cov=src/procwatch --cov-branch --cov-report=xml --cov-report=term
+
+      # 5️⃣ Upload coverage (optional, useful for codecov or coverage badge)
+      - name: Upload coverage to Codecov
+        if: success()
+        uses: codecov/codecov-action@v5
+        with:
+          files: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          token: ${{ secrets.CODECOV_TOKEN }}
