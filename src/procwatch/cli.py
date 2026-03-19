@@ -321,8 +321,7 @@ def output_processes(
 def check_process(args: argparse.Namespace) -> List[psutil.Process]:
 
     if args.pid:
-        proc = filter_by_pid(-2)
-        # proc = filter_by_pid(args.pid)
+        proc = filter_by_pid(args.pid)
         return [proc] if proc else []
 
     if args.name:
