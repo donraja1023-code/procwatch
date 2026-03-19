@@ -84,3 +84,9 @@ def test_filter_by_pid_type_error(monkeypatch):
         cli.filter_by_pid("invalid")
 
     assert exc.value.code == 1
+
+
+def test_restart_service():
+    command = "echo hi"
+    is_restarted = cli.restart_service(command=command)
+    assert is_restarted
