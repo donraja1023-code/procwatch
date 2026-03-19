@@ -1,5 +1,6 @@
 LICENSE
 README.md
+VERSION
 pyproject.toml
 setup.cfg
 src/procwatch/__init__.py
