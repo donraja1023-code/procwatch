@@ -80,8 +80,22 @@ jobs:
           files: dist/*
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish to TestPyPI
+      # - name: Publish to TestPyPI
+      #   uses: pypa/gh-action-pypi-publish@release/v1
+      #   with:
+      #     repository-url: https://test.pypi.org/legacy/
+      #     password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+
+      - name: Install built package
+        run: |
+          pip install dist/*.whl
+
+      - name: Smoke test CLI
+        run: |
+          procwatch --help
+
+      - name: Publish to PyPI
+        if: success()
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          repository-url: https://test.pypi.org/legacy/
-          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          password: ${{ secrets.PYPI_API_TOKEN }}
