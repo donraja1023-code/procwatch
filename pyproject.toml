@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 
 [project]
-name = "procwatch"
+name = "procwatch-cli"
 dynamic = ["version"]
 description = "Process watchdog CLI for monitoring and restarting services"
 readme = "README.md"
